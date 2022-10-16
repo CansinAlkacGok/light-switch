@@ -1,25 +1,20 @@
-import logo from './logo.svg';
-import './App.css';
+import React , {useState} from 'react';
+import Room from './Room';
+import './App.css'
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+export default function App() {
+
+const [litDark, setLight] = useState('lit');
+
+const lightSwitch = () => {
+  setLight( light => light === 'lit' ? 'dark' : 'lit') // setLight(light=>!light)
 }
 
-export default App;
+  return (
+    
+      <div className={`room ${litDark}`}>
+        <h1>Hi!</h1>
+        <Room litDark = {litDark} lightSwitch ={lightSwitch}/>
+      </div>
+  )
+}
